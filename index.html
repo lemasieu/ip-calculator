@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IP Calculator</title>
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>IP Calculator</h1>
+
+        <!-- Tab navigation -->
+        <div class="tabs">
+            <button class="tab-button active" data-tab="ipv4-to-ipv6">IPv4 → IPv6 Mapped</button>
+            <button class="tab-button" data-tab="ipv6-to-ipv4">IPv6 Mapped → IPv4</button>
+            <button class="tab-button" data-tab="subnet-mask">Subnet Mask Converter</button>
+            <button class="tab-button" data-tab="subnet-calc">Chia Subnet IPv4</button>
+        </div>
+
+        <!-- Tab contents -->
+        <div id="ipv4-to-ipv6" class="tab-content active">
+            <div class="section">
+                <h2>Chuyển Đổi IPv4 Sang IPv6 Mapped</h2>
+                <input id="ipv4Input" placeholder="Ví dụ: 192.168.1.1" type="text">
+                <button onclick="convertIpv4ToIpv6()">Chuyển đổi</button>
+                <div id="ipv6Result" class="result"></div>
+            </div>
+        </div>
+
+        <div id="ipv6-to-ipv4" class="tab-content">
+            <div class="section">
+                <h2>Chuyển Đổi IPv6 Mapped Sang IPv4</h2>
+                <input id="ipv6Input" placeholder="Ví dụ: ::ffff:c0a8:0101" type="text">
+                <button onclick="convertIpv6ToIpv4()">Chuyển đổi</button>
+                <div id="ipv4Result" class="result"></div>
+            </div>
+        </div>
+
+        <div id="subnet-mask" class="tab-content">
+            <div class="section">
+                <h2>Chuyển Đổi Subnet Mask (/n ↔ a.b.c.d)</h2>
+                <input id="maskInput" placeholder="Ví dụ: /24 hoặc 255.255.255.0" type="text">
+                <button onclick="convertSubnetMask()">Chuyển đổi</button>
+                <div id="maskResult" class="result"></div>
+            </div>
+        </div>
+
+        <div id="subnet-calc" class="tab-content">
+            <div class="section">
+                <h2>Tính Toán Chia Subnet (IPv4)</h2>
+                <input id="ipInput" placeholder="IP mạng, ví dụ: 192.168.1.0" type="text">
+                <input id="cidrInput" placeholder="CIDR, ví dụ: 24" type="text">
+                <input id="subnetsInput" placeholder="Số subnet cần chia (mặc định 1)" type="number" min="1">
+                <button onclick="calculateSubnets()">Tính toán</button>
+                <div id="subnetResult" class="result"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
